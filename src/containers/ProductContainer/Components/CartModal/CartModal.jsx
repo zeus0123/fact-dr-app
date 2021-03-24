@@ -1,4 +1,4 @@
-import { isEmpty } from 'lodash';
+import { isEmpty, sumBy } from 'lodash';
 import React from 'react';
 import Modal from 'react-modal';
 import { Button } from '../../../../components';
@@ -14,6 +14,10 @@ const CartModal = ({ open, onClose, cart, onDelete, user}) => {
       margin: '0 auto'
     }
   };
+
+  const getTotal = () => {
+    return sumBy(cart, 'tp');
+  }
 
   return (
     <Modal
@@ -57,6 +61,7 @@ const CartModal = ({ open, onClose, cart, onDelete, user}) => {
              </UserTableTd>
            </UserTableRow>
          ))}
+         <div style={{display: 'flex', justifyContent: 'flex-end', color: 'black', fontWeight: 'bold', marginTop: '10px'}}>Total: Rs. {getTotal()}</div>
        </TableWrapper>
       )}
       <ModalFooter>
