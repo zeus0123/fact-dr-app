@@ -31,7 +31,6 @@ const ProductContainer = ({
       history.push('/');
     } else {
       let currentUser = users.filter(u => u.id === +id);
-      console.log(id, currentUser);
       getCurrentUserData(currentUser);
     }   
     getProducts();

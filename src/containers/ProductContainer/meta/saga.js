@@ -17,7 +17,6 @@ function* getCartDetailsRequest(action) {
   try {
     const oldCartData = yield select(getCartData);
     const response = yield call(calcCartData, action.payload, oldCartData);
-    console.log(response);
     yield put(recieveCartDetails(response))
   } catch (error) {
     console.log(error);
